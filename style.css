@@ -1,0 +1,428 @@
+:root {
+    --primary-color: #8C5E3C;
+    --primary-hover: #734E32;
+    --bg-color: #FDF5EA;
+    --bg-alt: #F3E4D6;
+    --text-color: #000000;
+    --text-muted: #666666;
+    --white: #ffffff;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --section-padding: 120px 20px;
+    --container-max-width: 1400px;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(139, 94, 60, 0.3);
+}
+
+/* Navigation */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000;
+    color: var(--white);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 2.2rem;
+    letter-spacing: 6px;
+    line-height: 0.9;
+}
+
+.logo::after {
+    content: 'SHEABUTTER SPA INSTITUTE';
+    display: block;
+    font-size: 0.5rem;
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 120px 20px 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('assets/new/HeroSection.png') no-repeat center center/cover;
+    z-index: -1;
+    animation: slowZoom 20s infinite alternate;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.hero h1 {
+    font-size: 5.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    letter-spacing: 15px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-family: var(--font-heading);
+}
+
+.search-bar {
+    background: var(--white);
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.search-field {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-right: 1px solid #eee;
+    color: #666;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.search-field:last-of-type {
+    border-right: none;
+}
+
+.search-field select {
+    appearance: none;
+    border: none;
+    width: 90%;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.search-field .arrow {
+    font-size: 0.6rem;
+    color: var(--primary-color);
+}
+
+.search-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Services Section */
+.services {
+    padding: var(--section-padding);
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 80px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.service-img {
+    width: 280px;
+    height: 380px;
+    border-radius: 140px; /* More of an oval/pill shape like in some high-end spa sites, or perfect circle if sizes match */
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+/* Adjusting to perfect circle if original image is strictly circular */
+.service-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-img img {
+    transform: scale(1.15);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.service-card p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    max-width: 250px;
+    line-height: 1.8;
+}
+
+.service-card .btn {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+}
+
+/* About Us Section Refined */
+.about {
+    display: flex;
+    padding: 100px 50px;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+.about-content {
+    flex: 1;
+    background-color: var(--bg-alt);
+    padding: 100px 80px;
+    margin: 80px -50px 80px 0; /* Overlap effect */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-img {
+    flex: 1.2;
+    min-height: 800px;
+    background: url('assets/new/Buttom.png') no-repeat center center/cover;
+    position: relative;
+    z-index: 1;
+}
+
+.about-img::after {
+    content: 'HAMAMAT';
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    text-align: right;
+    line-height: 1;
+}
+
+.about-img::before {
+    content: 'SHEABUTTER SPA INSTITUTE';
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 60px;
+    color: white;
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    z-index: 2;
+}
+
+/* Info Section (Hours & Location) */
+.info-section {
+    padding: var(--section-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.info-card {
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.info-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.hours-list li span:first-child {
+    font-weight: 600;
+}
+
+.location-info p {
+    margin-bottom: 15px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    filter: grayscale(100%) contrast(1.2);
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+    .about-img {
+        height: 400px;
+    }
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .search-bar {
+        flex-direction: column;
+    }
+    .search-field {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    nav {
+        padding: 20px;
+    }
+}
