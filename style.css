@@ -107,10 +107,22 @@ nav {
     gap: 40px;
 }
 
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
 .nav-links a {
     font-size: 0.8rem;
     letter-spacing: 2px;
     font-weight: 600;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .nav-links a:hover {
@@ -399,30 +411,118 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-    .about {
-        grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+    .about-content {
+        margin: 40px -30px 40px 0;
+        padding: 60px 40px;
     }
-    .about-img {
-        height: 400px;
-    }
-    .info-section {
-        grid-template-columns: 1fr;
+    .hero h1 {
+        font-size: 4rem;
+        letter-spacing: 10px;
     }
 }
 
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
+    nav {
+        padding: 20px;
     }
+    
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; /* Hide for now, can be toggled by JS */
+        /* For a quick mobile fix without a drawer, we can just simplify it */
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 8px;
+        margin-bottom: 30px;
+    }
+
     .search-bar {
         flex-direction: column;
+        padding: 5px;
     }
+
     .search-field {
         border-right: none;
         border-bottom: 1px solid #eee;
+        padding: 15px;
     }
-    nav {
-        padding: 20px;
+
+    .search-btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .services h2 {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+
+    .service-img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+
+    .about-content {
+        margin: 0;
+        padding: 60px 30px;
+        text-align: center;
+    }
+
+    .about-img {
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .about-img::after {
+        font-size: 1.8rem;
+        top: 30px;
+        right: 30px;
+    }
+
+    .about-img::before {
+        top: 60px;
+        right: 30px;
+        font-size: 0.5rem;
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+        gap: 20px;
+    }
+
+    .info-card {
+        padding: 40px 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: 5px;
+    }
+    .logo {
+        font-size: 1.8rem;
+    }
+    .service-img {
+        width: 180px;
+        height: 180px;
     }
 }
